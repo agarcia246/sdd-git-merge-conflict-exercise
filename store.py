@@ -11,6 +11,8 @@ def loyalty_discount(subtotal:float):
 def tax(subtotal:float):
     return subtotal * 1.08
 
+def shipping(subtotal:float):
+    return subtotal + 5.0
 
 def calculate_total(
     subtotal, apply_discount=False, apply_tax=False, apply_shipping=False
@@ -23,6 +25,9 @@ def calculate_total(
 
     if apply_tax:
         subtotal = tax(subtotal)
+
+    if apply_shipping:
+        subtotal = shipping(subtotal)
     
     
     total = subtotal
