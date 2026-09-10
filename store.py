@@ -8,7 +8,8 @@ def loyalty_discount(subtotal:float):
     if subtotal > 50:
         return subtotal * 0.9
 
-    
+def tax(subtotal:float):
+    return subtotal * 1.08
 
 
 def calculate_total(
@@ -20,16 +21,11 @@ def calculate_total(
     if apply_discount:
         subtotal = loyalty_discount(subtotal)
 
+    if apply_tax:
+        subtotal = tax(subtotal)
     
     
     total = subtotal
-
-
-
-    # TODO: apply your assigned feature's pricing rule here, gated behind
-    # its argument (apply_discount, apply_tax, or apply_shipping)
-    if apply_tax:
-        total *= 1.08
 
     return total
 
